@@ -94,7 +94,6 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({
-      id: project.id,
       ...project,
       selectedStyles,
       selectedFeatures,
