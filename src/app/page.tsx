@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Header from "@/components/Header";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function LandingPage() {
   return (
@@ -7,90 +8,60 @@ export default function LandingPage() {
       <Header transparent />
 
       {/* Hero */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #FAF7F3 0%, #EEF4F0 50%, #E8E2D8 100%)" }} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-32 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left: copy */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-forest-50 rounded-full text-forest-400 text-xs font-bold tracking-widest uppercase mb-8">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                </svg>
-                AI-Powered Outdoor Planning
-              </div>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-[68px] font-normal leading-[1.08] tracking-tight mb-6" style={{ color: "#1B3A2D" }}>
-                Transform Your Backyard{" "}
-                <em className="font-display" style={{ fontStyle: "italic", color: "#2D4A3E" }}>with AI</em>
-                {" "}in Minutes
-              </h1>
-              <p className="text-lg leading-relaxed mb-10 max-w-lg" style={{ color: "#6B5F54" }}>
-                Turn a few backyard photos into tailored outdoor-living concepts,
-                feature ideas, and a practical cost range — before the first contractor
-                conversation.
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-4 mb-8">
-                <Link href="/start" className="btn-primary text-base px-8 py-4 gap-2">
-                  Start My Backyard Design
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </Link>
-                <a href="#how-it-works" className="inline-flex items-center gap-1.5 text-sm font-semibold py-4 transition-colors" style={{ color: "#4A4340" }}>
-                  See how it works
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </a>
-              </div>
-              <div className="flex items-center gap-6 text-sm" style={{ color: "#9A8E82" }}>
-                <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-forest-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  No design experience needed
-                </span>
-                <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-forest-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Rough cost guidance included
-                </span>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-20 w-full">
+          {/* Text centered above */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-forest-50 rounded-full text-forest-400 text-xs font-bold tracking-widest uppercase mb-8">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+              </svg>
+              AI-Powered Outdoor Planning
             </div>
-
-            {/* Right: hero image with floating cards */}
-            <div className="relative hidden lg:block">
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-bark/10 aspect-[4/3]">
-                <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
-                  alt="Contemporary backyard with patio, pergola and warm landscape lighting"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Floating card: Concept ready */}
-              <div className="absolute -left-6 top-8 bg-white rounded-2xl shadow-xl shadow-bark/8 px-5 py-4 flex items-center gap-3">
-                <div className="w-10 h-10 bg-forest-50 rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-forest-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs text-sand-700">Concept ready</div>
-                  <div className="text-sm font-bold text-bark">Modern retreat</div>
-                </div>
-              </div>
-              {/* Floating card: Plan includes */}
-              <div className="absolute -right-4 bottom-6 bg-forest-500 text-white rounded-2xl shadow-xl px-5 py-4">
-                <div className="text-[10px] font-bold tracking-[0.15em] uppercase opacity-70 mb-1">Your plan includes</div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl font-bold font-display">3 concepts</span>
-                  <span className="text-sm opacity-70">+ budget range</span>
-                </div>
-              </div>
+            <h1 className="font-display text-5xl md:text-6xl lg:text-[72px] font-normal leading-[1.06] tracking-tight mb-6" style={{ color: "#1B3A2D" }}>
+              Transform Your Backyard{" "}
+              <em className="font-display" style={{ fontStyle: "italic", color: "#2D4A3E" }}>with AI</em>
+              {" "}in Minutes
+            </h1>
+            <p className="text-lg leading-relaxed mb-10 max-w-xl mx-auto" style={{ color: "#6B5F54" }}>
+              Turn a few backyard photos into tailored outdoor-living concepts,
+              feature ideas, and a practical cost range — before the first contractor
+              conversation.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+              <Link href="/start" className="btn-primary text-base px-8 py-4 gap-2">
+                Start My Backyard Design
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </Link>
+              <a href="#how-it-works" className="inline-flex items-center gap-1.5 text-sm font-semibold py-4 transition-colors" style={{ color: "#4A4340" }}>
+                See how it works
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </div>
+            <div className="flex items-center justify-center gap-6 text-sm" style={{ color: "#9A8E82" }}>
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-forest-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                No design experience needed
+              </span>
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-forest-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Rough cost guidance included
+              </span>
             </div>
           </div>
+
+          {/* Large carousel below */}
+          <HeroCarousel />
         </div>
       </section>
 
