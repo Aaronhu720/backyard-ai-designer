@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Project {
+  id               String   @id @default(uuid())
+  customerName     String
+  email            String
+  phone            String
+  address          String
+  city             String
+  state            String
+  zipCode          String
+  backyardSize     String
+  currentCondition String
+  selectedStyles   String   // JSON array
+  selectedFeatures String   // JSON array
+  budgetRange      String
+  status           String   @default("new_lead")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  images    ProjectImage[]
+  estimates Estimate[]
+  notes     LeadNote[]
+}
+
+model ProjectImage {
+  id        String   @id @default(uuid())
+  projectId String
+  imageUrl  String
+  imageType String   // "uploaded" | "generated"
+  label     String?
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Estimate {
+  id                 String   @id @default(uuid())
+  projectId          String
+  lowEstimate        Float
+  highEstimate       Float
+  estimateDetailsJson String  // JSON
+  createdAt          DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model LeadNote {
+  id        String   @id @default(uuid())
+  projectId String
+  note      String
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}

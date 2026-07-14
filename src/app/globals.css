@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased;
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: #2A2520;
+    background: #FAF7F3;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-white font-semibold
+           transition-all duration-200 shadow-lg
+           hover:shadow-xl hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-md;
+    background: #2D4A3E;
+    border-radius: 999px;
+  }
+  .btn-primary:hover {
+    background: #1B3A2D;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium
+           border transition-all duration-200;
+    background: white;
+    color: #4A4340;
+    border-color: #D9D0C7;
+    border-radius: 999px;
+  }
+  .btn-secondary:hover {
+    border-color: #B5AA9F;
+    background: #F7F3ED;
+  }
+  .card {
+    background: white;
+    border: 1px solid #EDE7DE;
+    border-radius: 16px;
+  }
+  .input-field {
+    @apply w-full px-4 py-3.5 bg-white
+           focus:outline-none transition-all duration-200 placeholder:text-stone-400;
+    border: 1px solid #D9D0C7;
+    border-radius: 12px;
+    color: #2A2520;
+    font-size: 15px;
+  }
+  .input-field:focus {
+    border-color: #2D4A3E;
+    box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.08);
+  }
+  .section-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    @apply text-3xl md:text-4xl font-normal;
+    color: #1B3A2D;
+  }
+  .chip {
+    @apply px-5 py-3 cursor-pointer transition-all duration-200 text-sm font-medium select-none;
+    border: 1.5px solid #D9D0C7;
+    border-radius: 999px;
+    background: white;
+    color: #4A4340;
+  }
+  .chip:hover {
+    border-color: #B5AA9F;
+    background: #FAF7F3;
+  }
+  .chip-active {
+    border-color: #2D4A3E !important;
+    background: #EEF4F0 !important;
+    color: #1B3A2D !important;
+  }
+  .chip-inactive {
+    /* default state from .chip */
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5B7F63;
+  }
+}
